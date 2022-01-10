@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Cau1
+namespace Cau1.GUI.Employee
 {
-    public partial class Form1 : Form
+    public partial class EmployeeGUI : Form
     {
-        public Form1()
+        public EmployeeGUI()
         {
             InitializeComponent();
         }
