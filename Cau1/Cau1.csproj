@@ -50,6 +50,7 @@
     <Compile Include="BAL\Employee\EmployeeBAL.cs" />
     <Compile Include="BEL\Department\DepartmentBEL.cs" />
     <Compile Include="BEL\Employee\EmployeeBEL.cs" />
+    <Compile Include="DAL\BaseDAL.cs" />
     <Compile Include="DAL\Department\DepartmentDAL.cs" />
     <Compile Include="DAL\Employee\EmployeeDAL.cs" />
     <Compile Include="GUI\Employee\EmployeeGUI.cs">
