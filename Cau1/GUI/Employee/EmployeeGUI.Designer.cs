@@ -62,6 +62,7 @@ namespace Cau1.GUI.Employee
             this.buttonOut.TabIndex = 0;
             this.buttonOut.Text = "Thoát";
             this.buttonOut.UseVisualStyleBackColor = true;
+            this.buttonOut.Click += new System.EventHandler(this.buttonOut_Click);
             // 
             // buttonPut
             // 

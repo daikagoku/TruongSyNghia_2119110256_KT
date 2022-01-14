@@ -146,11 +146,20 @@ namespace Cau1.GUI.Employee
         {
             if(selectRowIndex > -1)
             {
-                EmployeeBEL employee = getEmployeeInput();
-                if (employeeBAL.put(employee))
+                
+                DialogResult result = MessageBox.Show("Bạn có sửa dữ liệu không?", "Thông báo", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
                 {
-                    loadRowView(selectRowIndex, employee);
+                    EmployeeBEL employee = getEmployeeInput();
+                    if (employeeBAL.put(employee))
+                    {
+                        loadRowView(selectRowIndex, employee);
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn nhân viên", "Thông báo");
             }
         }
 
@@ -158,12 +167,29 @@ namespace Cau1.GUI.Employee
         {
             if (selectRowIndex > -1)
             {
-                EmployeeBEL employee = getEmployeeInput();
-                if (employeeBAL.delete(employee))
+                DialogResult result = MessageBox.Show("Bạn có xóa dữ liệu không?", "Thông báo", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
                 {
-                    dgvEmployees.Rows.RemoveAt(selectRowIndex);
-                    dgvEmployees.Rows[dgvEmployees.CurrentCell.RowIndex].Selected = true;
+                    EmployeeBEL employee = getEmployeeInput();
+                    if (employeeBAL.delete(employee))
+                    {
+                        dgvEmployees.Rows.RemoveAt(selectRowIndex);
+                        dgvEmployees.Rows[dgvEmployees.CurrentCell.RowIndex].Selected = true;
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn nhân viên", "Thông báo");
+            }
+        }
+
+        private void buttonOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn đóng chương trình không ?", "Thông báo", MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes)
+            {
+                this.Close();
             }
         }
     }
