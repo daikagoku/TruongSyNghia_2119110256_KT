@@ -34,6 +34,12 @@ namespace Cau1.GUI.Employee
             this.buttonPost = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.place_birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inputId = new System.Windows.Forms.TextBox();
             this.inputName = new System.Windows.Forms.TextBox();
             this.inputPlaceBirth = new System.Windows.Forms.TextBox();
@@ -45,12 +51,6 @@ namespace Cau1.GUI.Employee
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.place_birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,10 +107,55 @@ namespace Cau1.GUI.Employee
             this.department});
             this.dgvEmployees.Location = new System.Drawing.Point(12, 98);
             this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.ReadOnly = true;
             this.dgvEmployees.Size = new System.Drawing.Size(838, 298);
             this.dgvEmployees.TabIndex = 3;
             this.dgvEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellClick);
             this.dgvEmployees.SelectionChanged += new System.EventHandler(this.dgvEmployees_SelectionChanged);
+            // 
+            // id
+            // 
+            this.id.FillWeight = 1F;
+            this.id.HeaderText = "Mã";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.FillWeight = 2F;
+            this.name.HeaderText = "Họ tên";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // date_birth
+            // 
+            this.date_birth.FillWeight = 2F;
+            this.date_birth.HeaderText = "Ngày sinh";
+            this.date_birth.Name = "date_birth";
+            this.date_birth.ReadOnly = true;
+            // 
+            // gender
+            // 
+            this.gender.FillWeight = 1F;
+            this.gender.HeaderText = "Giới tính";
+            this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
+            this.gender.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.gender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // place_birth
+            // 
+            this.place_birth.FillWeight = 2F;
+            this.place_birth.HeaderText = "Nơi sinh";
+            this.place_birth.Name = "place_birth";
+            this.place_birth.ReadOnly = true;
+            // 
+            // department
+            // 
+            this.department.FillWeight = 2F;
+            this.department.HeaderText = "Đơn vị";
+            this.department.Name = "department";
+            this.department.ReadOnly = true;
             // 
             // inputId
             // 
@@ -204,44 +249,6 @@ namespace Cau1.GUI.Employee
             this.label5.Size = new System.Drawing.Size(54, 13);
             this.label5.TabIndex = 14;
             this.label5.Text = "Ngày sinh";
-            // 
-            // id
-            // 
-            this.id.FillWeight = 1F;
-            this.id.HeaderText = "Mã";
-            this.id.Name = "id";
-            // 
-            // name
-            // 
-            this.name.FillWeight = 2F;
-            this.name.HeaderText = "Họ tên";
-            this.name.Name = "name";
-            // 
-            // date_birth
-            // 
-            this.date_birth.FillWeight = 2F;
-            this.date_birth.HeaderText = "Ngày sinh";
-            this.date_birth.Name = "date_birth";
-            // 
-            // gender
-            // 
-            this.gender.FillWeight = 1F;
-            this.gender.HeaderText = "Giới tính";
-            this.gender.Name = "gender";
-            this.gender.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.gender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // place_birth
-            // 
-            this.place_birth.FillWeight = 2F;
-            this.place_birth.HeaderText = "Nơi sinh";
-            this.place_birth.Name = "place_birth";
-            // 
-            // department
-            // 
-            this.department.FillWeight = 2F;
-            this.department.HeaderText = "Đơn vị";
-            this.department.Name = "department";
             // 
             // EmployeeGUI
             // 

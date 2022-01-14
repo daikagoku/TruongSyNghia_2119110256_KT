@@ -64,6 +64,11 @@ namespace Cau1.GUI.Employee
                 MessageBox.Show("Không bỏ trống tên nhân viên!");
                 return false;
             }
+            if (inputPlaceBirth.Equals(""))
+            {
+                MessageBox.Show("Không bỏ trống nơi sinh!");
+                return false;
+            }
             return true;
         }
         void clearInput()
