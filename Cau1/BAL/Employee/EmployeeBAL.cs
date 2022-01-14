@@ -11,7 +11,7 @@ namespace Cau1.BAL.Employee
     class EmployeeBAL
     {
         EmployeeDAL employeeDAL = new EmployeeDAL();
-        public List<EmployeeBEL> get()
+        public List<EmployeeBEL> gets()
         {
            return employeeDAL.gets();
         }
@@ -21,6 +21,8 @@ namespace Cau1.BAL.Employee
         }
         public Boolean post(EmployeeBEL employee)
         {
+            String id = employeeDAL.getNewID();
+            employee.id = id;
             return employeeDAL.post(employee);
         }
         public Boolean put(EmployeeBEL employee)

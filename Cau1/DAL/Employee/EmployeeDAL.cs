@@ -19,7 +19,7 @@ namespace Cau1.DAL.Employee
 
         public List<EmployeeBEL> gets()
         {
-            List<EmployeeBEL> employees = null;
+            List<EmployeeBEL> employees = new List<EmployeeBEL>();
             sqlConnection.Open();
             SqlCommand sqlCommand = new SqlCommand("pr_getEmployees", sqlConnection);
             sqlCommand.CommandType = CommandType.StoredProcedure;

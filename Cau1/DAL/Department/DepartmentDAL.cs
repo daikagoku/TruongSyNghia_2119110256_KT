@@ -18,7 +18,7 @@ namespace Cau1.DAL.Department
         }
         public List<DepartmentBEL> gets()
         {
-            List<DepartmentBEL> departments = null;
+            List<DepartmentBEL> departments = new List<DepartmentBEL>();
             sqlConnection.Open();
             SqlCommand sqlCommand = new SqlCommand("pr_getDepartments", sqlConnection);
             sqlCommand.CommandType = CommandType.StoredProcedure;

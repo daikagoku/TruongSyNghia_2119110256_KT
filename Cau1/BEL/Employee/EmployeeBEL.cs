@@ -9,6 +9,14 @@ namespace Cau1.BEL.Employee
 {
     class EmployeeBEL
     {
+        public String id { get; set; }
+        public String name { get; set; }
+        public Boolean gender { get; set; }
+        public DateTime date_birth { get; set; }
+        public String place_birth { get; set; }
+        public String department_id { get; set; }
+
+        public EmployeeBEL() { }
         public EmployeeBEL(SqlDataReader sqlDataReader)
         {
             this.id = sqlDataReader["id"].ToString();
@@ -23,11 +31,5 @@ namespace Cau1.BEL.Employee
             this.department_id = sqlDataReader["department_id"].ToString();
         }
 
-        public String id { get; set; }
-        public String name { get; set; }
-        public Boolean gender { get; set; }
-        public DateTime date_birth { get; set; }
-        public String place_birth { get; set; }
-        public String department_id { get; set; }
     }
 }
