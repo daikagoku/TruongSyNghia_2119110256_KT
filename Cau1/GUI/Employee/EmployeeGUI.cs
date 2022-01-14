@@ -18,6 +18,7 @@ namespace Cau1.GUI.Employee
     {
         EmployeeBAL employeeBAL = new EmployeeBAL();
         DepartmentBAL departmentBAL = new DepartmentBAL();
+        int selectRowIndex = -1;
         public EmployeeGUI()
         {
             InitializeComponent();
@@ -49,6 +50,10 @@ namespace Cau1.GUI.Employee
             dgvEmployees.Rows[index].Cells["gender"].Value = employee.gender;
             dgvEmployees.Rows[index].Cells["date_birth"].Value = employee.date_birth;
             dgvEmployees.Rows[index].Cells["place_birth"].Value = employee.place_birth;
+
+            DepartmentBEL department = departmentBAL.get(employee.department_id);
+            dgvEmployees.Rows[index].Cells["department"].Value = department.name;
+
         }
 
 
@@ -61,15 +66,32 @@ namespace Cau1.GUI.Employee
             }
             return true;
         }
+        void clearInput()
+        {
+            inputId.Text = "";
+            inputName.Text = "";
+            inputPlaceBirth.Text = "";
+            inputGender.Checked = false;
+            inputDepartment.SelectedIndex = 0;
+        }
+        void loadInput(EmployeeBEL employee)
+        {
+            inputId.Text = employee.id;
+            inputName.Text = employee.name;
+            inputDateBirth.Value = employee.date_birth;
+            inputPlaceBirth.Text = employee.place_birth;
+            inputGender.Checked = employee.gender;
+            DepartmentBEL department = departmentBAL.get(employee.department_id);
+            inputDepartment.Text = department.name;
+        }
         EmployeeBEL getEmployeeInput()
         {
             EmployeeBEL employee = new EmployeeBEL();
             employee.name = inputName.Text;
             employee.date_birth = inputDateBirth.Value;
             employee.place_birth = inputPlaceBirth.Text;
-
+            employee.gender = inputGender.Checked;
             DepartmentBEL department = (DepartmentBEL)(inputDepartment.SelectedItem);
-
             employee.department_id = department.id;
             return employee;
         }
@@ -82,7 +104,40 @@ namespace Cau1.GUI.Employee
                 if (employeeBAL.post(employee))
                 {
                     addRowView(employee);
+                    clearInput();
                 }
+            }
+        }
+
+        private void dgvEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = dgvEmployees.CurrentCell.RowIndex;
+            if(index >= 0)
+            {
+                dgvEmployees.Rows[index].Selected = true;
+            }
+        }
+
+        private void dgvEmployees_SelectionChanged(object sender, EventArgs e)
+        {
+            if(dgvEmployees.SelectedRows.Count > 0)
+            {
+                if(dgvEmployees.SelectedRows[0].Index >= 0 && dgvEmployees.SelectedRows[0].Index < dgvEmployees.Rows.Count - 1)
+                {
+                    selectRowIndex = dgvEmployees.SelectedRows[0].Index;
+                    EmployeeBEL employee = employeeBAL.get(dgvEmployees.SelectedRows[0].Cells["id"].Value.ToString());
+                    loadInput(employee);
+                }
+                else
+                {
+                    clearInput();
+                    selectRowIndex = -1;
+                }
+            }
+            else
+            {
+                clearInput();
+                selectRowIndex = -1;
             }
         }
     }

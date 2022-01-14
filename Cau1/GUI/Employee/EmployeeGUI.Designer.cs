@@ -50,7 +50,7 @@ namespace Cau1.GUI.Employee
             this.date_birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gender = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.place_birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departhment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,11 +101,13 @@ namespace Cau1.GUI.Employee
             this.date_birth,
             this.gender,
             this.place_birth,
-            this.departhment});
+            this.department});
             this.dgvEmployees.Location = new System.Drawing.Point(12, 98);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.Size = new System.Drawing.Size(838, 298);
             this.dgvEmployees.TabIndex = 3;
+            this.dgvEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellClick);
+            this.dgvEmployees.SelectionChanged += new System.EventHandler(this.dgvEmployees_SelectionChanged);
             // 
             // inputId
             // 
@@ -232,11 +234,11 @@ namespace Cau1.GUI.Employee
             this.place_birth.HeaderText = "Nơi sinh";
             this.place_birth.Name = "place_birth";
             // 
-            // departhment
+            // department
             // 
-            this.departhment.FillWeight = 2F;
-            this.departhment.HeaderText = "Đơn vị";
-            this.departhment.Name = "departhment";
+            this.department.FillWeight = 2F;
+            this.department.HeaderText = "Đơn vị";
+            this.department.Name = "department";
             // 
             // EmployeeGUI
             // 
@@ -291,6 +293,6 @@ namespace Cau1.GUI.Employee
         private System.Windows.Forms.DataGridViewTextBoxColumn date_birth;
         private System.Windows.Forms.DataGridViewCheckBoxColumn gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn place_birth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn departhment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn department;
     }
 }
