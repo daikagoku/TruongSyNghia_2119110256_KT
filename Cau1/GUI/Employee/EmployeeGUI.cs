@@ -48,7 +48,7 @@ namespace Cau1.GUI.Employee
             dgvEmployees.Rows[index].Cells["id"].Value = employee.id;
             dgvEmployees.Rows[index].Cells["name"].Value = employee.name;
             dgvEmployees.Rows[index].Cells["gender"].Value = employee.gender;
-            dgvEmployees.Rows[index].Cells["date_birth"].Value = employee.date_birth;
+            dgvEmployees.Rows[index].Cells["date_birth"].Value = employee.date_birth.ToShortDateString();
             dgvEmployees.Rows[index].Cells["place_birth"].Value = employee.place_birth;
 
             DepartmentBEL department = departmentBAL.get(employee.department_id);
@@ -87,6 +87,7 @@ namespace Cau1.GUI.Employee
         EmployeeBEL getEmployeeInput()
         {
             EmployeeBEL employee = new EmployeeBEL();
+            employee.id = inputId.Text;
             employee.name = inputName.Text;
             employee.date_birth = inputDateBirth.Value;
             employee.place_birth = inputPlaceBirth.Text;
@@ -138,6 +139,31 @@ namespace Cau1.GUI.Employee
             {
                 clearInput();
                 selectRowIndex = -1;
+            }
+        }
+
+        private void buttonPut_Click(object sender, EventArgs e)
+        {
+            if(selectRowIndex > -1)
+            {
+                EmployeeBEL employee = getEmployeeInput();
+                if (employeeBAL.put(employee))
+                {
+                    loadRowView(selectRowIndex, employee);
+                }
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (selectRowIndex > -1)
+            {
+                EmployeeBEL employee = getEmployeeInput();
+                if (employeeBAL.delete(employee))
+                {
+                    dgvEmployees.Rows.RemoveAt(selectRowIndex);
+                    dgvEmployees.Rows[dgvEmployees.CurrentCell.RowIndex].Selected = true;
+                }
             }
         }
     }

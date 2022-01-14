@@ -71,6 +71,7 @@ namespace Cau1.GUI.Employee
             this.buttonPut.TabIndex = 1;
             this.buttonPut.Text = "Sửa";
             this.buttonPut.UseVisualStyleBackColor = true;
+            this.buttonPut.Click += new System.EventHandler(this.buttonPut_Click);
             // 
             // buttonPost
             // 
@@ -90,6 +91,7 @@ namespace Cau1.GUI.Employee
             this.buttonDelete.TabIndex = 2;
             this.buttonDelete.Text = "Xóa";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // dgvEmployees
             // 
