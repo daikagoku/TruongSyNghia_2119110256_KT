@@ -59,12 +59,12 @@ namespace Cau1.GUI.Employee
 
         Boolean validateInput()
         {
-            if (inputName.Equals(""))
+            if (inputName.Text.Equals(""))
             {
                 MessageBox.Show("Không bỏ trống tên nhân viên!");
                 return false;
             }
-            if (inputPlaceBirth.Equals(""))
+            if (inputPlaceBirth.Text.Equals(""))
             {
                 MessageBox.Show("Không bỏ trống nơi sinh!");
                 return false;
@@ -151,14 +151,17 @@ namespace Cau1.GUI.Employee
         {
             if(selectRowIndex > -1)
             {
-                
-                DialogResult result = MessageBox.Show("Bạn có sửa dữ liệu không?", "Thông báo", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
+
+                if (validateInput())
                 {
-                    EmployeeBEL employee = getEmployeeInput();
-                    if (employeeBAL.put(employee))
+                    DialogResult result = MessageBox.Show("Bạn có sửa dữ liệu không?", "Thông báo", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
                     {
-                        loadRowView(selectRowIndex, employee);
+                        EmployeeBEL employee = getEmployeeInput();
+                        if (employeeBAL.put(employee))
+                        {
+                            loadRowView(selectRowIndex, employee);
+                        }
                     }
                 }
             }
