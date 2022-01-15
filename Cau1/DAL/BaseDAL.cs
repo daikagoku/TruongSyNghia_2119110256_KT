@@ -47,15 +47,14 @@ namespace Cau1.DAL
                 char[] args = id.ToCharArray();
                 while (isIncrease && index >= 0)
                 {
-                    int newI = (int)args[index] + 1;
-                    if (newI == 10)
+                    if(args[index] == '9')
                     {
-                        index--;
                         args[index] = '0';
+                        index--;
                     }
                     else
                     {
-                        args[index] = (char)newI;
+                        args[index]++;
                         isIncrease = false;
                     }
                 }
