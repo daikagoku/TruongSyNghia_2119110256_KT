@@ -1,11 +1,11 @@
 ﻿use master
 go
-drop database if exists HR_2119110256
+drop database if exists HR
 go
-create database HR_2119110256
+create database HR
 go
 
-use HR_2119110256 
+use HR 
 go
 
 drop table if exists Employee_2119110256
