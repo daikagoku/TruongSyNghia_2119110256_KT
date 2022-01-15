@@ -10,7 +10,7 @@ namespace Cau1.DAL
     class BaseDAL
     {
         protected SqlConnection sqlConnection;
-        protected String schema = "HR";
+        protected String schema = "HR_2119110256";
         protected String table = "";
         protected String primary = "";
         protected String username = "sa";

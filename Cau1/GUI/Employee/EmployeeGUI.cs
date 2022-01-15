@@ -178,7 +178,8 @@ namespace Cau1.GUI.Employee
                 DialogResult result = MessageBox.Show("Bạn có xóa dữ liệu không?", "Thông báo", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    EmployeeBEL employee = getEmployeeInput();
+                    EmployeeBEL employee = new EmployeeBEL();
+                    employee.id = inputId.Text;
                     if (employeeBAL.delete(employee))
                     {
                         dgvEmployees.Rows.RemoveAt(selectRowIndex);

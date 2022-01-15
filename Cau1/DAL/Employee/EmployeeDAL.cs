@@ -13,7 +13,7 @@ namespace Cau1.DAL.Employee
     {
         public EmployeeDAL() : base()
         {
-            this.table = "employee";
+            this.table = "employee_2119110256";
             this.primary = "id";
         }
 
@@ -21,7 +21,7 @@ namespace Cau1.DAL.Employee
         {
             List<EmployeeBEL> employees = new List<EmployeeBEL>();
             sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand("pr_getEmployees", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("pr_getEmployees_2119110256", sqlConnection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
             if (sqlDataReader.HasRows)
@@ -38,7 +38,7 @@ namespace Cau1.DAL.Employee
         {
             EmployeeBEL employee = null;
             sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand("pr_getEmployee", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("pr_getEmployee_2119110256", sqlConnection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.Add(new SqlParameter("@id", id));
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
@@ -55,7 +55,7 @@ namespace Cau1.DAL.Employee
         public Boolean delete(EmployeeBEL employeeBEL)
         {
             sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand("pr_deleteEmployee", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("pr_deleteEmployee_2119110256", sqlConnection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.Add(new SqlParameter("@id", employeeBEL.id));
             sqlCommand.ExecuteNonQuery();
@@ -66,7 +66,7 @@ namespace Cau1.DAL.Employee
         {
 
             sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand("pr_postEmployee", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("pr_postEmployee_2119110256", sqlConnection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.Add(new SqlParameter("@id", employeeBEL.id));
             sqlCommand.Parameters.Add(new SqlParameter("@name", employeeBEL.name));
@@ -83,7 +83,7 @@ namespace Cau1.DAL.Employee
         {
             sqlConnection.Open();
 
-            SqlCommand sqlCommand = new SqlCommand("pr_putEmployee", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("pr_putEmployee_2119110256", sqlConnection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.Add(new SqlParameter("@id", employeeBEL.id));
             sqlCommand.Parameters.Add(new SqlParameter("@name", employeeBEL.name));
